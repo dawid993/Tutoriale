@@ -1,0 +1,94 @@
+.scheduler{
+  width: 100%;
+}
+.scheduler thead{
+  background:#5858FA;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-style: normal;  
+  height: 35px;
+}
+.scheduler .hour{
+  width:50px;
+  background: #CED8F6;
+  border-radius: 8px;
+  text-align: center;
+    
+}
+
+.scheduler .section{
+  width:150px;
+  height: 20px;  
+  border-width: 0px;
+  border-style: solid; 
+  background: azure;
+}
+
+.scheduler .event-section{
+  width:150px;
+  height: 32px;  
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.avaiableEvent{
+  background: #2EFE64;
+  border: solid;
+  border-radius: 8px;
+  border-color: #0B610B;
+  text-align: center;
+}
+
+.fullEvent{
+  background: #FA5858;
+  border: solid;
+  border-radius: 8px;
+  border-color: #DF0101;
+  text-align: center;
+}
+
+.enrolledEvent{
+  background: #819FF7;
+  border: solid;
+  border-radius: 8px;
+  border-color: #08088A;
+  text-align: center;
+}
+
+.scheduler .event{
+  font-size: 13px;
+}
+
+.scheduler ul{
+  margin-top: 10px;
+}
+.scheduler ul li{
+  display: inline;
+  padding: 0px 35px 0px 35px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  background: #108DE6;
+  margin-left: 5px;  
+}
+
+.scheduler ul li:hover{
+  font-size: 20px;  
+}
+
+.scheduler ul li.active{
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color:#2500AB;
+  background: #02C9D7;
+}
+
+body{
+  background: #EFF5FB;
+}
