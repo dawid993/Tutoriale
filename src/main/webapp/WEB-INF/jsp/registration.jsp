@@ -40,27 +40,19 @@
 	
 	$(function(){
 		$("#user-details").hide();		
+		
 		$("#login").on('change',function(){
 			var login = $("#login").val();			
 			if(!isLoginCorrect(login)){
 				showError("login",LOGIN_ERROR);
 				correctnessStatus = clearFlag(correctnessStatus,LOGIN_CORRECT_BIT);				
 			}
-			else{
-				$.ajax({
-					url:"${pageContext.request.contextPath}/enrollment/avaiablelogin.html/"+login,
-					async:false
-				}).done(function(response){
-					if(response == true){
-						correctnessStatus = setFlag(correctnessStatus,LOGIN_CORRECT_BIT);
-						showCorrect("login");
-					}
-					else{
-						correctnessStatus = clearFlag(correctnessStatus,LOGIN_CORRECT_BIT);
-						showError("login",LOGIN_BUSY);
-					}
-				})
+			else
+			{
+				correctnessStatus = setFlag(correctnessStatus,LOGIN_CORRECT_BIT);
+				showCorrect("login");
 			}
+		
 			notifyRegistration();
 		});
 		
@@ -135,15 +127,15 @@
 			}
 		});
 		
-		$("#indexNumber").on("change",function(){
-			var name = $("#indexNumber").val();
+		$("#phoneNumber").on("change",function(){
+			var name = $("#phoneNumber").val();
 			if(isIndexNumberCorrect(name)){
 				correctnessStatus = setFlag(correctnessStatus,INDEX_CORRECT_BIT);
-				showCorrect("indexNumber");
+				showCorrect("phoneNumber");
 			}
 			else{
 				correctnessStatus = clearFlag(correctnessStatus, INDEX_CORRECT_BIT);
-				showError("indexNumber",INDEX_ERROR);
+				showError("phoneNumber",INDEX_ERROR);
 			}
 		});
 	})
@@ -184,7 +176,7 @@
 	}
 	
 	function isIndexNumberCorrect(indexNumber){
-		var regex = /^\d{6}$/;
+		var regex = /^\d{9}$/;
 		return regex.test(indexNumber);		
 	}
 	
@@ -229,7 +221,7 @@
 <title>Registration</title>
 </head>
 <body>
-	<c:url value="/enrollment/registration/evaluate.html"
+	<c:url value="/tutorials/register"
 		var="registerAction" />
 	<div>
 		<h1>Registration</h1>
@@ -273,9 +265,9 @@
 						<form:input path="email" />
 					</div>	
 					<div class="pure-control-group">
-						<label>Index number</label>
+						<label>Mobile number</label>
 						<form:input
-							path="indexNumber" />
+							path="phoneNumber" />
 					</div>
 				</fieldset>
 			</div>

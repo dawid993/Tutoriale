@@ -8,16 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class User {
 
 	@Id
 	@Column(name = "user_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "user_login")
+	@Column(name = "login")
 	private String login;
+	
+	@Column(name="user_password")
+	private String password;
 
 	@Column(name = "enabled")
 	private Integer enabled;
@@ -31,11 +34,8 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "account_type")
-	private String accountType;
-
-	@Column(name = "index_number")
-	private String indexNumber;
+	@Column(name = "phone_number")
+	private String phoneNumber;
 
 	public Long getId() {
 		return id;
@@ -51,6 +51,14 @@ public class User {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Integer getEnabled() {
@@ -85,20 +93,19 @@ public class User {
 		this.email = email;
 	}
 
-	public String getAccountType() {
-		return accountType;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getIndexNumber() {
-		return indexNumber;
-	}
-
-	public void setIndexNumber(String indexNumber) {
-		this.indexNumber = indexNumber;
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", login=" + login + ", password=" + password + ", enabled=" + enabled + ", name="
+				+ name + ", surname=" + surname + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + "]";
 	}
 
 }

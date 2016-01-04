@@ -21,4 +21,5 @@
 	</bean>
  
  <mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
+ <mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 </beans>
